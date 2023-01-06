@@ -12,9 +12,10 @@ def simple_separator():
     Функция создает красивый резделитель из 10-и звездочек (**********)
     :return: **********
     """
+    return '**********'
     pass
 
-
+print('simple_separator():')
 print(simple_separator() == '**********')  # True
 
 
@@ -24,9 +25,14 @@ def long_separator(count):
     :param count: количество звездочек
     :return: строка разделитель, примеры использования ниже
     """
+    str = ''
+    for i in range(count):
+        str += '*'
+    return str
+
     pass
 
-
+print('long_separator(count):')
 print(long_separator(3) == '***')  # True
 print(long_separator(4) == '****')  # True
 
@@ -38,9 +44,13 @@ def separator(simbol, count):
     :param count: количество повторений
     :return: строка разделитель примеры использования ниже
     """
+    str = ''
+    for i in range(count):
+        str += simbol
+    return str
     pass
 
-
+print('separator(simbol, count):')
 print(separator('-', 10) == '----------')  # True
 print(separator('#', 5) == '#####')  # True
 
@@ -55,6 +65,10 @@ def hello_world():
     ##########
     :return: None
     """
+    str = '**********\n\n'
+    str += 'Hello World!\n\n'
+    str += '##########'
+    print(str)
     pass
 
 
@@ -65,6 +79,7 @@ Hello World!
 
 ##########
 '''
+print('hello_world():')
 hello_world()
 
 
@@ -79,6 +94,11 @@ def hello_who(who='World'):
     :param who: кого мы приветствуем, по умолчанию World
     :return: None
     """
+
+    str = '**********\n\n'
+    str += f'Hello {who}!\n\n'
+    str += '##########'
+    print(str)
     pass
 
 
@@ -89,6 +109,7 @@ Hello World!
 
 ##########
 '''
+print('hello_who(who=\'World\'):')
 hello_who()
 '''
 **********
@@ -115,9 +136,14 @@ def pow_many(power, *args):
     :param args: любое количество цифр
     :return: результат вычисления # True -> (1 + 2)**1
     """
+    res = 0
+    for i in args:
+        res += i
+    res = res**power
+    return res
     pass
 
-
+print('pow_many(power, *args):')
 print(pow_many(1, 1, 2) == 3)  # True -> (1 + 2)**1 == 3
 print(pow_many(1, 2, 3) == 5)  # True -> (2 + 3)**1 == 5
 print(pow_many(2, 1, 1) == 4)  # True -> (1 + 1)**2 == 4
@@ -133,9 +159,11 @@ def print_key_val(**kwargs):
     :param kwargs: любое количество именованных параметров
     :return: None
     """
+    for key, value in kwargs.items():
+        print(f'{key} = {value}')
     pass
 
-
+print('print_key_val(**kwargs):')
 """
 name --> Max
 age --> 21
@@ -158,9 +186,10 @@ def my_filter(iterable, function):
     :param function: функция фильтрации
     :return: новая отфильтрованная последовательность
     """
+
     pass
 
-
+print('my_filter(iterable, function):')
 print(my_filter([1, 2, 3, 4, 5], lambda x: x > 3) == [4, 5])  # True
 print(my_filter([1, 2, 3, 4, 5], lambda x: x == 2) == [2])  # True
 print(my_filter([1, 2, 3, 4, 5], lambda x: x != 3) == [1, 2, 4, 5])  # True
